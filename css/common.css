@@ -1,0 +1,17 @@
+  * {
+  outline: solid 1px red !important;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  
+  body {
+    font-family: 'roboto', sans-serif;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
