@@ -36,29 +36,108 @@
   <link rel="stylesheet" href="/css/common.css">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
   <!-- ===== ここから画面に表示される部分 ===== -->
+  <div class="container">
 
-  <header id="header" class="header">
-    <h1 class="header__title">
-      <span>TAKESHI's</span>
-      <span>PORTFOLIO</span>
-    </h1>
-    <!-- /.header__title -->
-  </header>
+    <header id="header" class="header">
+      <h1 class="header__title">
 
-  <main id="main">
+      </h1>
+      <!-- /.header__title -->
+
+    </header>
+
+    <nav class="nav">
+      <ul>
+        <li>
+          <a href="">
+            <span>TOP</span>
+            <span>トップ</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span>About</span>
+            <span>私について</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span>Works</span>
+            <span>制作物</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span>Contact</span>
+            <span>コンタクト</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
 
 
-  </main>
+    <main id="main" class="main">
+      <div class="svg-container">
+        <!-- 3段分の高さを確保するため、viewBoxの縦幅を 450 に拡大 -->
+        <svg viewBox="0 0 1200 450" width="100%" height="100%">
 
-  <footer>
+          <!-- 1段目：MY（y="100"） -->
+          <text x="80" y="-100" dominant-baseline="middle" text-anchor="start" font-size="160"
+            font-family="'Arial Black', sans-serif" font-weight="900" letter-spacing="10">
+            <tspan class="letter m-1">M</tspan>
+            <tspan class="letter y-2">Y</tspan>
+          </text>
 
-  </footer>
+          <line class="underline line-1" x1="80" y1="-30" x2="520" y2="-30" />
+
+          <!-- 2段目：PORT（y="220"） -->
+          <text x="80" y="180" dominant-baseline="middle" text-anchor="start" font-size="160"
+            font-family="'Arial Black', sans-serif" font-weight="900" letter-spacing="10">
+            <tspan class="letter p-3">P</tspan>
+            <tspan class="letter o-4">O</tspan>
+            <tspan class="letter r-5">R</tspan>
+            <tspan class="letter t-6">T</tspan>
+          </text>
+
+          <line class="underline line-2" x1="80" y1="250" x2="960" y2="250" />
+
+          <!-- 3段目：FOLIO（y="340"） -->
+          <text x="80" y="450" dominant-baseline="middle" text-anchor="start" font-size="160"
+            font-family="'Arial Black', sans-serif" font-weight="900" letter-spacing="10">
+            <tspan class="letter f-7">F</tspan>
+            <tspan class="letter o-8">O</tspan>
+            <tspan class="letter l-9">L</tspan>
+            <tspan class="letter i-10">I</tspan>
+            <tspan class="letter o-11">O</tspan>
+          </text>
+
+          <line class="underline__ex line-3" x1="80" y1="520" x2="1120" y2="520" />
+
+        </svg>
+      </div>
+      <!-- svg-container -->
+
+
+    </main>
+
+    <aside class="aside">
+
+    </aside>
+
+    <footer id="footer" class="footer">
+
+    </footer>
+
+  </div>
+  <!-- /.container -->
+
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>

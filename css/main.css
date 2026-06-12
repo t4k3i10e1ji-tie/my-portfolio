@@ -1,5 +1,128 @@
 
 /* --------------------------------------
-header
+container
 ----------------------------------------- */
 
+/* 全体のレイアウト設定 */
+.container {
+  display: grid;
+  /* 3列の幅を指定（左: 200px, 中央: 伸び縮み, 右: 200px） */
+  grid-template-columns: 200px 1fr 200px;
+  /* 3行の高さを指定（ヘッダー: 自動, メイン: 残りすべて, フッター: 自動） */
+  grid-template-rows: auto 1fr auto;
+  
+  /* 画面いっぱいに広げる設定 */
+  min-height: 100vh; 
+  
+  /* レイアウトの配置（見た目の通りに配置） */
+  grid-template-areas:
+    "header header header"
+    "nav    main   aside"
+    "footer footer footer";
+  }
+  
+  /* 各要素をエリアに割り当て */
+  /* ---------------------------
+  header
+  ------------------------------- */
+  
+  .header { 
+    grid-area: header; 
+    height: 100px;
+  }
+  
+  .nav { 
+    grid-area: nav;
+  }
+
+  .nav ul {
+    display: flex;
+    gap: 16px;          /* リンク同士の間隔 */
+    flex-wrap: wrap;    /* 画面が狭いとき折り返す */
+  }
+
+  .nav a {
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    display: inline-block;
+    overflow: hidden;
+    text-decoration: none;
+    position: relative;
+  }
+
+  .nav a span {
+    position: absolute;
+    left: 0;
+    display: block;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    transition: all 0.5s;
+  }
+
+  .nav a span:nth-child(1) {
+    top: 0;
+  }
+
+  .nav a span:nth-child(2) {
+    top: -100%;
+  }
+
+  .nav a:hover span:nth-child(1) {
+    top: 100%;
+  }
+
+  .nav a:hover span:nth-child(2) {
+    top: 0;
+    color: #fff;
+    background-color: #333;
+  }
+
+
+
+.main {
+  grid-area: main;
+  }
+  
+.aside{ 
+  grid-area: aside;
+  }
+
+.footer {
+  grid-area: footer; 
+  height: 120px;
+}
+
+/* （参考）見やすさのための背景色など */
+/* .header { background: #ffcccb; }
+.nav    { background: #e0f7fa; }
+.main   { background: #ffffff; }
+.aside  { background: #fff9c4; }
+.footer { background: #d7ccc8; }
+.container > * { padding: 20px; text-align: center; } */
+
+/* ---------------------------------
+responsive
+------------------------------------ */
+
+/* 画面幅が 768px 以下の時（スマホ・タブレット向け） */
+@media (max-width: 768px) {
+  .container {
+    /* 1列に変更 */
+    grid-template-columns: 1fr;
+    /* 行の高さ（ヘッダー、ナビ、メイン、サイド、フッターの順） */
+    grid-template-rows: auto auto auto auto auto;
+    
+    /* 上から順番に積み重なるようにエリアを再定義 */
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "aside"
+      "footer";
+  }
+}

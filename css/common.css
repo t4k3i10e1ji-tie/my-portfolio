@@ -10,8 +10,110 @@
     font-family: 'roboto', sans-serif;
   }
 
-  .container {
-    width: 100%;
-    max-width: 1280px;
-    margin: 0 auto;
+  .svg-container {
+  width:100%;
+  max-width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 3rem;
+}
+
+/* ─── SVG文字の共通設定 ─── */
+.letter {
+  stroke: #333;
+  stroke-width: 2;
+  fill: transparent;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  
+  /* 線の描画（1.5秒）と、最後の塗りつぶし（0.5秒） */
+  animation: 
+    drawLinear 1.5s ease-in-out forwards,
+    fillLetter 0.5s ease-in-out forwards;
+}
+
+/* ─── 11文字の連鎖ディレイ設定 ─── */
+/* 0.15秒刻みで線が始まり、最後の文字が描き終わる頃（約1.5秒後〜）に各自ハッキリ塗りつぶされます */
+
+/* 1段目: MY */
+.m-1  { animation-delay: 0.00s, 1.50s; }
+.y-2  { animation-delay: 0.15s, 1.65s; }
+
+/* 2段目: PORT */
+.p-3  { animation-delay: 0.30s, 1.80s; }
+.o-4  { animation-delay: 0.45s, 1.95s; }
+.r-5  { animation-delay: 0.60s, 2.10s; }
+.t-6  { animation-delay: 0.75s, 2.25s; }
+
+/* 3段目: FOLIO */
+.f-7  { animation-delay: 0.90s, 2.40s; }
+.o-8  { animation-delay: 1.05s, 2.55s; }
+.l-9  { animation-delay: 1.20s, 2.70s; }
+.i-10 { animation-delay: 1.35s, 2.85s; }
+.o-11 { animation-delay: 1.50s, 3.00s; }
+
+
+/* ─── アニメーションの定義 ─── */
+@keyframes drawLinear {
+  to {
+    stroke-dashoffset: 0;
   }
+}
+
+@keyframes fillLetter {
+  to {
+    fill: #333;
+    stroke: transparent;
+  }
+}
+
+/* ─── 下線の共通スタイル ─── */
+.underline {
+  stroke: transparent;
+  stroke-width: 10;        /* ほどよい太さに調整 */
+  stroke-linecap: round;   /* 両端を丸く */
+  stroke-dasharray: 900;   /* 線を隠すための設定 */
+  stroke-dashoffset: 900;
+  
+  /* 0.6秒かけてスッと引かれるアニメーション */
+  animation: drawUnderline 0.6s ease-out forwards;
+}
+/* 3本目の下線スタイル */
+.underline__ex {
+  stroke: transparent;
+  stroke-width: 10;        /* ほどよい太さに調整 */
+  stroke-linecap: round;   /* 両端を丸く */
+  stroke-dasharray: 1200;   /* 線を隠すための設定 */
+  stroke-dashoffset: 1200;
+  
+  /* 0.6秒かけてスッと引かれるアニメーション */
+  animation: drawUnderline 0.6s ease-out forwards;
+}
+
+/* ─── 各下線の登場タイミング（ディレイ） ─── */
+
+/* 1本目:「MY」が描き終わるタイミング（y-2が0.15s開始 + 1.5s描画 ≒ 約1.6秒後） */
+.line-1 { 
+  animation-delay: 1.4s; 
+  stroke: #333;
+}
+
+/* 2本目:「PORT」が描き終わるタイミング（t-6が0.75s開始 + 1.5s描画 ≒ 約2.2秒後） */
+.line-2 { 
+  animation-delay: 2.0s;
+  stroke: #333;
+}
+
+/* 3本目:「FOLIO」が描き終わるタイミング（o-11が1.5s開始 + 1.5s描画 ≒ 約3.0秒後） */
+.line-3 { 
+  animation-delay: 2.7s; 
+  stroke: #333;
+}
+
+
+/* ─── 下線のアニメーション定義 ─── */
+@keyframes drawUnderline {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
